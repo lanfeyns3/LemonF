@@ -57,8 +57,18 @@ namespace lemon {
             m_msg.append("}\n");
        }
 
-       void LemonParserObject::PreBodyTag(const char* tag) {
-            m_bTag = tag;
+       void LemonParserObject::AddSeparator(const char* separatorText) {
+            if (separatorText == nullptr) {
+                    m_msg += '\n';
+                } else {
+                    m_msg.append(separatorText);
+                    m_msg += "\n";
+            };
+       }
+
+       void LemonParserObject::PreBodyTag(const char *tag)
+       {
+           m_bTag = tag;
        }
     }
 }
